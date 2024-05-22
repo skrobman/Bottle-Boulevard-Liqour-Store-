@@ -5,6 +5,7 @@ import './assets/styles/shop.css';
 import App from './App';
 import WhiskeyPage from './components/pages/WhiskeyPage';
 import CognacPage from './components/pages/CognacPage';
+import VodkaPage from './components/pages/VodkaPage';
 
 import {
   createBrowserRouter,
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "cognac&brandy",
     element: <CognacPage/>,
+  },
+  {
+    path: "vodka",
+    element: <VodkaPage/>,
   },
 ]);
 
