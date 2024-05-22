@@ -1,0 +1,482 @@
+@import url('https://fonts.googleapis.com/css2?family=David+Libre:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'David Libre', sans-serif;
+    background: #F5F5F5;
+}
+
+/* Reset CSS */
+
+/* Box model */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+/* Forms */
+/* input,
+button, */
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.header-wrapper {
+    box-sizing: border-box
+}
+
+.header {
+    border-bottom: solid 1px #9e2b0e;
+}
+
+.search-button {
+    background-color: #c73507;
+}
+
+.search-button:hover {
+    background-color: #9e2b0e;
+}
+
+.login-sign a {
+    color: #c73507;
+}
+
+.login-sign a:hover {
+    color: #9e2b0e;
+}
+
+.vertical-line,
+.shopping-cart-block {
+    margin-bottom: 5px;
+}
+
+
+.vertical-line {
+    width: 1px;
+    background-color: #c73507;
+}
+
+.fa-shopping-cart {
+    color: #c73507;
+    font-size: 36px;
+}
+
+.cart-label {
+    background-color: #942605;
+    /* Red background color */
+    color: #fff;
+    /* White text color */
+    font-weight: 500;
+    border-radius: 50%;
+    /* Make it round */
+    width: 20px;
+    /* Set width */
+    height: 20px;
+    /* Set height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    /* Font size of the number */
+    top: -5px;
+    right: -10px;
+    /* Adjust position relative to the button */
+}
+
+.header-buttons{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.header-buttons a {
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.header-buttons a:hover {
+    color: #9e2b0e;
+}
+
+.header-buttons a:not(:last-child) {
+    margin-right: 40px;
+}
+
+.hero {
+    background-image: url("../images/hero/hero.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 173px;
+    position: relative;
+    min-height: 480px;
+    /* padding-bottom: 300px; */
+    font-family: "Old Standard TT", serif;
+    display: flex;
+    /* align-items: center; */
+}
+
+
+.hero-text {
+    text-align: center;
+    /* margin: 0; */
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 16px;
+    /* display: inline-block; */
+    /* padding-right: ; */
+}
+
+.hero-h2 {
+    position: relative;
+}
+
+.hero-h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -8px;
+    /* Adjust the spacing between text and underline */
+    border-bottom: 1px solid #fff;
+    /* Adjust thickness and color as needed */
+}
+
+.hero-text button:hover {
+    color: #9e2b0e;
+    border: 2px solid #9e2b0e;
+}
+
+.shop div {
+    border-radius: 0.5rem;
+}
+
+.checked{
+    color: #780000;
+}
+
+.bottles-w {
+    background-image: url("../images/shopMain/whiskey.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 270px;
+    width: 450px;
+    position: relative;
+}
+
+.bottles-c {
+    background-image: url("../images/shopMain/Cognac.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 270px;
+    width: 450px;
+    position: relative;
+}
+
+.bottles-v {
+    background-image: url("../images/shopMain/Vodka.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 270px;
+    width: 450px;
+    position: relative;
+}
+
+.bottles-t {
+    background-image: url("../images/shopMain/Tequila.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 270px;
+    width: 450px;
+    position: relative;
+}
+
+.bottles-g {
+    background-image: url("../images/shopMain/gin.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 270px;
+    width: 450px;
+    position: relative;
+}
+
+.bottles-ww {
+    background-image: url("../images/shopMain/wine.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 270px;
+    width: 450px;
+    position: relative;
+}
+
+.bottles-buttons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.bottles-w:hover .bottles-buttons {
+    opacity: 1;
+    visibility: visible;
+}
+
+.bottles-c:hover .bottles-buttons {
+    opacity: 1;
+    visibility: visible;
+}
+
+.bottles-v:hover .bottles-buttons {
+    opacity: 1;
+    visibility: visible;
+}
+
+.bottles-t:hover .bottles-buttons {
+    opacity: 1;
+    visibility: visible;
+}
+
+.bottles-ww:hover .bottles-buttons {
+    opacity: 1;
+    visibility: visible;
+}
+
+.bottles-g:hover .bottles-buttons {
+    opacity: 1;
+    visibility: visible;
+}
+
+.bottles-w::before,
+.bottles-c::before,
+.bottles-v::before,
+.bottles-t::before,
+.bottles-ww::before,
+.bottles-g::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Adjust the opacity as needed */
+    opacity: 0;
+    /* Initially transparent */
+    transition: opacity 0.3s ease;
+    /* Smooth transition */
+}
+
+.bottles-w,
+.bottles-c,
+.bottles-v,
+.bottles-t,
+.bottles-ww,
+.bottles-g {
+    transition: transform 0.3s ease;
+    /* Smooth transition for scaling */
+}
+
+.bottles-w:hover::before,
+.bottles-c:hover::before,
+.bottles-v:hover::before,
+.bottles-t:hover::before,
+.bottles-ww:hover::before,
+.bottles-g:hover::before {
+    opacity: 1;
+    /* Fully opaque on hover */
+}
+
+.bottles-w:hover {
+    transform: scale(1.05);
+    /* Increase size by 5% on hover */
+}
+
+.bottles-c:hover {
+    transform: scale(1.05);
+    /* Increase size by 5% on hover */
+}
+
+.bottles-v:hover {
+    transform: scale(1.05);
+    /* Increase size by 5% on hover */
+}
+
+.bottles-t:hover {
+    transform: scale(1.05);
+    /* Increase size by 5% on hover */
+}
+
+.bottles-ww:hover {
+    transform: scale(1.05);
+    /* Increase size by 5% on hover */
+}
+
+.bottles-g:hover {
+    transform: scale(1.05);
+    /* Increase size by 5% on hover */
+}
+
+.review{
+    background: #f7f5f4;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2%;
+}
+
+.prof-pict{
+    background-color: #000;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.stars{
+    font-size: 25px;
+}
+
+.stars .fa-star:not(:last-child){
+    margin-right: 2px;
+}
+
+.custom-input {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-input label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: text;
+    transition: .2s ease-in-out;
+    padding-left: 13px;
+}
+
+.custom-input input,
+label {
+    color: #757575;
+    font-size: 1em;
+}
+
+.custom-input input:focus+label,
+.custom-input input:not(:placeholder-shown)+label {
+    font-size: 0.75em;
+    top: 0;
+    transform: translateY(10%);
+    pointer-events: none;
+}
+
+.sub-button {
+    background-color: #c73507;
+}
+
+.sub-button:hover {
+    background-color: #942605;
+}
+
+.footer {
+    background-color: #c73507;
+}
+
+.footer-about {
+    width: 650px;
+}
+
+.footer-support {
+    width: 220px;
+}
+
+.footer-support a:hover {
+    color: black;
+}
+
+.footer-custom-input {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-custom-input label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: text;
+    transition: .2s ease-in-out;
+    padding-left: 13px;
+}
+
+.footer-custom-input input,
+label {
+    color: #757575;
+    font-size: 0.9em;
+}
+
+.footer-custom-input input:focus+.footer-label,
+.footer-custom-input input:not(:placeholder-shown)+.footer-label {
+    font-size: 0.75em;
+    top: 0;
+    transform: translateY(-10%);
+    pointer-events: none;
+}
+
+.footer-bottom{
+    padding-bottom: 32px;
+}
+
+.sm-txt {
+    font-size: 16px;
+}
+
+.follow{
+    font-size: 16px;
+}
+
+.follow .fa {
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    background: #780000;
+    margin: 5px 3px;
+}
+
+.fa-instagram:hover{
+    background-color: #fcb0b3;
+}
+
+.fa-telegram:hover{
+    background-color: #4059AD;
+}
+
+.fa-github:hover{
+    background-color: #000;
+}

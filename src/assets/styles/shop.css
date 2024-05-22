@@ -1,0 +1,184 @@
+.breadcrumb {
+    color: #666872;
+}
+
+.bread-link:hover {
+    color: #9e2b0e;
+}
+
+.filter {
+    border-radius: 2px;
+    width: 20%;
+    height: 420px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-right: 30px;
+    
+}
+
+.filter h2 {
+    font-size: 22px;
+}
+
+.filter-checkbox{
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.store-section {
+    border-radius: 2px;
+    width: 77%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.store-section-elements {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.store-element {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.store-img-container {
+    width: 100%;
+    max-width: 150px;
+    height: 280px;
+    overflow: hidden;
+}
+
+.store-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.store-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.store-price {
+    color: #9e2b0e;
+    font-size: 21px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 10px;
+    margin-bottom: 6px;
+}
+
+.store-name {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.store-name:hover {
+    color: #c36f09;
+}
+
+.store-brand {
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.pagination {
+    background: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow around the entire element */
+    z-index: 1;
+    right: -15px;
+    margin-top: 10px;
+}
+
+.space{
+    padding: 10px;
+}
+
+.dropdown-content::before {
+    content: "";
+    position: absolute;
+    top: -0.6rem;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    background-color: #f9f9f9;
+    box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.2); /* Horizontal shadow for the triangle */
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a.active {
+    background-color: #9e2b0e; /* Background color for active item */
+    color: #fff; /* Text color for active item */
+}
+
+.dropdown-content a:hover {
+    background-color: #9e2b0e; /* Background color for active item */
+    color: #fff; /* Text color for active item */
+}
+
+.price-range {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 10px;
+}
+
+.price-range input[type="number"] {
+    width: 100%;
+    padding: 7px;
+    margin: 0 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    text-align: center;
+    font-size: 14px;
+    box-sizing: border-box; /* Ensure padding doesn't affect the width */
+    outline: none; /* Remove outline when focused */
+    -moz-appearance: textfield; /* Remove spin buttons in Firefox */
+}
+
+.price-range input[type="number"]::-webkit-outer-spin-button,
+.price-range input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Remove spin buttons in Chrome, Safari, Edge, and Opera */
+    margin: 0; /* Remove default margin */
+}
+
+.price-range input[type="number"]:focus {
+    outline: none; /* Ensure outline remains removed when focused */
+}
+
+.price-range span {
+    font-size: 16px;
+    color: #666872;
+}
+
