@@ -12,7 +12,9 @@ const CognacPage = () => {
                 <title>COGNAC&BRANDY</title>
             </Helmet>
             <Header />
-            <Breadcrumb />
+            <div className="bread-crumb mt-48 ml-14 mr-14">
+                <Breadcrumb />
+            </div>
             <StoreCog />
             <Footer />
         </>

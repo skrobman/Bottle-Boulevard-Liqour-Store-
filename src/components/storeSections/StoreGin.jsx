@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Filter from './Filter';
 import Pagination from '@mui/material/Pagination';
-import { tequilaData } from '../data/tequila';
+import { ginData } from '../data/gin';
 import { ReactComponent as DropIcon } from '../../assets/images/svg/dropbottom.svg';
 
-const StoreTequila = () => {
+const StoreGin = () => {
     const [page, setPage] = useState(1);
     const [selectedBrands, setSelectedBrands] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [sortBy, setSortBy] = useState('best_selling');
-    const [minPrice, setMinPrice] = useState(29);
-    const [maxPrice, setMaxPrice] = useState(2000);
+    const [minPrice, setMinPrice] = useState(26);
+    const [maxPrice, setMaxPrice] = useState(60);
     const dropdownRef = useRef(null);
 
     useEffect(() => {
@@ -47,13 +47,13 @@ const StoreTequila = () => {
         setMaxPrice(priceRange[1]);
     };
 
-    const brands = Array.from(new Set(tequilaData.tequilaData.map(element => element.brand)));
+    const brands = Array.from(new Set(ginData.ginData.map(element => element.brand)));
 
     const itemsPerPage = 12;
     const startIndex = (page - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
 
-    const filteredWhiskeys = tequilaData.tequilaData.filter(element => {
+    const filteredWhiskeys = ginData.ginData.filter(element => {
         return (selectedBrands.length === 0 || selectedBrands.includes(element.brand)) &&
             element.price >= minPrice && element.price <= maxPrice;
     });
@@ -102,13 +102,13 @@ const StoreTequila = () => {
                 brands={brands}
                 selectedBrands={selectedBrands}
                 handleBrandChange={handleBrandChange}
-                minPrice={29}
-                maxPrice={2000}
+                minPrice={26}
+                maxPrice={60}
                 handlePriceChange={handlePriceChange}
             />
             <div className="store-section bg-white">
                 <div className="store-header p-7">
-                    <h2 className='uppercase text-slate-700 font-semibold text-3xl'>tequila</h2>
+                    <h2 className='uppercase text-slate-700 font-semibold text-3xl'>gin</h2>
                     <div className="store-header-small flex justify-between mt-2">
                         <small>
                             Showing {Math.min(itemsPerPage, whiskeysForPage.length)} of {filteredWhiskeys.length} products
@@ -194,4 +194,4 @@ const StoreTequila = () => {
     );
 };
 
-export default StoreTequila;
+export default StoreGin;

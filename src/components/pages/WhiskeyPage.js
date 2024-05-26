@@ -12,7 +12,10 @@ const WhiskeyPage = () => {
                 <title>WHISKEY</title>
             </Helmet>
             <Header />
-            <Breadcrumb />
+            <div className="bread-crumb mt-48 ml-14 mr-14">
+                <Breadcrumb />
+            </div>
+            
             <Store />
             <Footer />
         </>
