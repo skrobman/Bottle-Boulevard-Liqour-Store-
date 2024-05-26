@@ -6,6 +6,9 @@ import App from './App';
 import WhiskeyPage from './components/pages/WhiskeyPage';
 import CognacPage from './components/pages/CognacPage';
 import VodkaPage from './components/pages/VodkaPage';
+import TequilaPage from './components/pages/TequilaPage';
+import GinPage from './components/pages/GinPage';
+import WinePage from './components/pages/WinePage';
 
 import {
   createBrowserRouter,
@@ -28,6 +31,18 @@ const router = createBrowserRouter([
   {
     path: "vodka",
     element: <VodkaPage/>,
+  },
+  {
+    path: "tequila",
+    element: <TequilaPage />,
+  },
+  {
+    path: "gin",
+    element: <GinPage/>,
+  },
+  {
+    path: "wine",
+    element: <WinePage/>,
   },
 ]);
 
