@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './assets/styles/index.css';
 import './assets/styles/shop.css';
+import './assets/styles/items.css'
 import App from './App';
 import WhiskeyPage from './components/pages/WhiskeyPage';
 import CognacPage from './components/pages/CognacPage';

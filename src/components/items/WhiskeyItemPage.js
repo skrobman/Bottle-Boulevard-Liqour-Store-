@@ -19,7 +19,7 @@ const WhiskeyItemPage = () => {
     return (
         <>
             <Header />
-            <div className="breadcrumb-elementTransition flex justify-between mt-48 ml-14 mr-14">
+            <div className="flex justify-between mt-48 ml-14 mr-14">
                 <Breadcrumb />
                 <small>
                     {prevWhiskey && (
@@ -31,8 +31,12 @@ const WhiskeyItemPage = () => {
                     )}
                 </small>
             </div>
-            <div className="whiskey-item-page">
-                <img src={whiskey.image} alt={whiskey.name} />
+            <div className="whiskey-items-page ml-14 mr-14">
+                <div className="left-side-items">
+                    <div className="item-img w-72">
+                        <img src={whiskey.image} alt={whiskey.name} className="w-full h-72 object-contain" />
+                    </div>
+                </div>
             </div>
         </>
     );
