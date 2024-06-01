@@ -1,6 +1,13 @@
+.container{
+    margin-left: 28px;
+    margin-top: 28px;
+    word-wrap: break-word;
+}
+
 .whiskey-items-page {
     margin-top: 20px;
     gap: 20px;
+    padding-bottom: 20px;
 }
 
 .nav-links {
@@ -19,13 +26,18 @@
 }
 
 .whiskey-image {
-    width: 200px;
+    width: 300px;
     /* Adjust as needed */
-    height: auto;
+    height: 400px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .whiskey-details {
     flex: 1;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding-right: 28px;
+    box-sizing: border-box;
 }
 
 .whiskey-name {
@@ -41,6 +53,8 @@
 
 .whiskey-desc {
     margin-bottom: 10px;
+    line-height: 1.8;
+    padding-right: 28px;
 }
 
 .whiskey-price {
@@ -49,9 +63,8 @@
 }
 
 .add-to-cart{
-    font-family: Open Sans, sans-serif;
-    border: 1px solid #565656;
-    background: #fff;
+    background: #BD7844;
+    color: #fff;
     line-height: 1.2;
     padding: 10px;
     font-size: 16px;
@@ -60,11 +73,13 @@
     margin: 0;
     transition: background .2s ease-in-out;
     cursor: pointer;
+    min-width: 150px;
 }
 
 .add-to-cart:hover{
-    color: #fff;
+    opacity: 0.9;
     background: #BD7844;
+    border: none;
 }
 
 .quantity-container {
@@ -72,6 +87,8 @@
     font-size: 15px;
     background: #fff;
     max-width: 150px; /* Adjust the value as needed */
+    padding-top: 14px;
+    padding-bottom: 20px;
 }
 
 .quantity-button {
@@ -79,6 +96,7 @@
     flex-grow: 1;
     flex-basis: 0;
     text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .quantity {
@@ -86,4 +104,6 @@
     text-align: center;
     flex-grow: 2;
     flex-basis: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }

@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import Filter from './Filter';
 import Pagination from '@mui/material/Pagination';
-import { data } from '../data/cognac';
+import { cognacBrandyData } from '../data/cognac';
 import { ReactComponent as DropIcon } from '../../assets/images/svg/dropbottom.svg';
 
 const StoreCog = () => {
@@ -47,13 +48,13 @@ const StoreCog = () => {
         setMaxPrice(priceRange[1]);
     };
 
-    const brands = Array.from(new Set(data.cognacBrandyData.map(element => element.brand)));
+    const brands = Array.from(new Set(cognacBrandyData.cognacBrandyData.map(element => element.brand)));
 
     const itemsPerPage = 12;
     const startIndex = (page - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
 
-    const filteredWhiskeys = data.cognacBrandyData.filter(element => {
+    const filteredWhiskeys = cognacBrandyData.cognacBrandyData.filter(element => {
         return (selectedBrands.length === 0 || selectedBrands.includes(element.brand)) &&
             element.price >= minPrice && element.price <= maxPrice;
     });
@@ -169,7 +170,7 @@ const StoreCog = () => {
                                 <img src={element.image} alt={element.name} className='store-img' />
                             </div>
                             <p className='store-price'>${element.price}</p>
-                            <a href="#" className='store-name'>{element.name}</a>
+                            <Link to={`/cognac&brandy/${element.id}`} className="store-name">{element.name}</Link>
                             <small className='store-brand'>
                                 <a href="#">{element.brand}</a>
                             </small>

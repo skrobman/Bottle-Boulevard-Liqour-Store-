@@ -1,15 +1,34 @@
 import React from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
-import { data } from '../data/whiskeys'; // Adjust the import path as necessary
+import { data } from '../data/whiskeys';
+import { cognacBrandyData } from '../data/cognac';
+import { vodkaData } from '../data/vodka';
 
 const Breadcrumb = () => {
     const location = useLocation();
     const { id } = useParams();
     const pathnames = location.pathname.split('/').filter((x) => x);
 
-    const getProductName = (id) => {
-        const product = data.whiskeyData.find(item => item.id === parseInt(id));
-        return product ? product.name : 'Product';
+    const getProduct = (id, category) => {
+        let product = null;
+        switch (category) {
+            case 'whiskey':
+                if (Array.isArray(data.whiskeyData)) {
+                    product = data.whiskeyData.find(item => item.id === parseInt(id));
+                }
+                break;
+            case 'cognac&brandy':
+                if (Array.isArray(cognacBrandyData.cognacBrandyData)) {
+                    product = cognacBrandyData.cognacBrandyData.find(item => item.id === parseInt(id));
+                }
+                break;
+            case 'vodka':
+                product = vodkaData.find(item => item.id === parseInt(id));
+                break;
+            default:
+                break;
+        }
+        return product;
     };
 
     const capitalizeCategory = (name) => {
@@ -18,7 +37,7 @@ const Breadcrumb = () => {
     };
 
     return (
-        <div className="breadcrumb  font-semibold text-base">
+        <div className="breadcrumb font-semibold text-base">
             <small>
                 <Link to="/" className='bread-link'>
                     Home
@@ -29,7 +48,9 @@ const Breadcrumb = () => {
                 let displayName = name;
 
                 if (!isNaN(name) && isLast) {
-                    displayName = getProductName(name);
+                    const category = pathnames[index - 1];
+                    const product = getProduct(name, category);
+                    displayName = product ? product.name : 'Product';
                 } else {
                     displayName = capitalizeCategory(name);
                 }
