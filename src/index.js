@@ -12,6 +12,10 @@ import GinPage from './components/pages/GinPage';
 import WinePage from './components/pages/WinePage';
 import WhiskeyItemPage from './components/items/WhiskeyItemPage';
 import CognacItemPage from './components/items/CognacItemPage';
+import VodkaItemPage from './components/items/VodkaItemPage';
+import TequilaItemPage from './components/items/TequilaItemPage';
+import GinItemPage from './components/items/GinItemPage';
+import WineItemPage from './components/items/WineItemPage';
 import Breadcrumb from './components/storeSections/Breadcrumb';
 
 import {
@@ -45,16 +49,32 @@ const router = createBrowserRouter([
     element: <VodkaPage/>,
   },
   {
+    path: "/vodka/:id",
+    element: <VodkaItemPage />,
+  },
+  {
     path: "/tequila",
     element: <TequilaPage />,
+  },
+  {
+    path: "/tequila/:id",
+    element: <TequilaItemPage />,
   },
   {
     path: "/gin",
     element: <GinPage/>,
   },
   {
+    path: "/gin/:id",
+    element: <GinItemPage />,
+  },
+  {
     path: "/wine",
     element: <WinePage/>,
+  },
+  {
+    path: "/wine/:id",
+    element: <WineItemPage />,
   },
 ]);
 

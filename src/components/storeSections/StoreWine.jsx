@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import Filter from './Filter';
 import Pagination from '@mui/material/Pagination';
 import { wineData } from '../data/wine';
@@ -169,7 +170,7 @@ const StoreWine = () => {
                                 <img src={element.image} alt={element.name} className='store-img' />
                             </div>
                             <p className='store-price'>${element.price}</p>
-                            <a href="#" className='store-name'>{element.name}</a>
+                            <Link to={`/wine/${element.id}`} className="store-name">{element.name}</Link>
                             <small className='store-brand'>
                                 <a href="#">{element.brand}</a>
                             </small>

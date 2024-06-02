@@ -55,6 +55,32 @@ select {
     background-color: #9e2b0e;
 }
 
+.search-popup {
+    position: absolute;
+    top: calc(100% + 10px); /* Position below the search input with some spacing */
+    left: 0; /* Align the left edge of the popup with the left edge of the search input */
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow around the entire element */
+    z-index: 1;
+}
+
+.search-result {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.search-result:hover {
+    background-color: #f4f4f4;
+}
+
+.search-input {
+    position: relative;
+}
+
 .login-sign a {
     color: #c73507;
 }
@@ -101,7 +127,7 @@ select {
     /* Adjust position relative to the button */
 }
 
-.header-buttons{
+.header-buttons {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -170,7 +196,7 @@ select {
     border-radius: 0.5rem;
 }
 
-.checked{
+.checked {
     color: #780000;
 }
 
@@ -344,24 +370,24 @@ select {
     /* Increase size by 5% on hover */
 }
 
-.review{
+.review {
     background: #f7f5f4;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 2%;
 }
 
-.prof-pict{
+.prof-pict {
     background-color: #000;
     border-radius: 50%;
     width: 100px;
     height: 100px;
 }
 
-.stars{
+.stars {
     font-size: 25px;
 }
 
-.stars .fa-star:not(:last-child){
+.stars .fa-star:not(:last-child) {
     margin-right: 2px;
 }
 
@@ -447,7 +473,7 @@ label {
     pointer-events: none;
 }
 
-.footer-bottom{
+.footer-bottom {
     padding-bottom: 32px;
 }
 
@@ -455,7 +481,7 @@ label {
     font-size: 16px;
 }
 
-.follow{
+.follow {
     font-size: 16px;
 }
 
@@ -469,14 +495,14 @@ label {
     margin: 5px 3px;
 }
 
-.fa-instagram:hover{
+.fa-instagram:hover {
     background-color: #fcb0b3;
 }
 
-.fa-telegram:hover{
+.fa-telegram:hover {
     background-color: #4059AD;
 }
 
-.fa-github:hover{
+.fa-github:hover {
     background-color: #000;
 }

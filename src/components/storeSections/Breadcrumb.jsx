@@ -3,6 +3,9 @@ import { Link, useLocation, useParams } from 'react-router-dom';
 import { data } from '../data/whiskeys';
 import { cognacBrandyData } from '../data/cognac';
 import { vodkaData } from '../data/vodka';
+import { tequilaData } from '../data/tequila';
+import { ginData } from '../data/gin';
+import { wineData } from '../data/wine';
 
 const Breadcrumb = () => {
     const location = useLocation();
@@ -23,7 +26,24 @@ const Breadcrumb = () => {
                 }
                 break;
             case 'vodka':
-                product = vodkaData.find(item => item.id === parseInt(id));
+                if (Array.isArray(vodkaData.vodkaData)) {
+                    product = vodkaData.vodkaData.find(item => item.id === parseInt(id));
+                }
+                break;
+            case 'tequila':
+                if (Array.isArray(tequilaData.tequilaData)) {
+                    product = tequilaData.tequilaData.find(item => item.id === parseInt(id));
+                }
+                break;
+            case 'gin':
+                if (Array.isArray(ginData.ginData)) {
+                    product = ginData.ginData.find(item => item.id === parseInt(id));
+                }
+                break;
+            case 'wine':
+                if (Array.isArray(wineData.wineData)) {
+                    product = wineData.wineData.find(item => item.id === parseInt(id));
+                }
                 break;
             default:
                 break;
@@ -32,7 +52,7 @@ const Breadcrumb = () => {
     };
 
     const capitalizeCategory = (name) => {
-        const categories = ['whiskey', 'cognac&brandy', 'vodka'];
+        const categories = ['whiskey', 'cognac&brandy', 'vodka', 'tequila', 'gin', 'wine'];
         return categories.includes(name.toLowerCase()) ? name.toUpperCase() : name;
     };
 
