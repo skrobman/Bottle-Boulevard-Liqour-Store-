@@ -1,28 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ReactComponent as DropIcon } from '../../assets/images/svg/dropbottom.svg';
 import { Link } from 'react-router-dom';
-import { data } from '../data/whiskeys'; // Import your data
+import { handleSearch } from '../utils/SearchLogic';
+import LoginRegistration from '../utils/LoginRegistration';
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [isInputFocused, setIsInputFocused] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
-  const handleSearch = () => {
-    // Implement search logic here
-    const results = data.whiskeyData.filter((whiskey) =>
-      whiskey.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setSearchResults(results);
-  };
+  useEffect(() => {
+    handleSearch(searchTerm.trim(), setSearchResults);
+  }, [searchTerm]);
 
   const handleInputChange = (event) => {
     const value = event.target.value;
     setSearchTerm(value);
-    if (value.trim() === '') {
-      setSearchResults([]); // Clear search results if search term is empty
-    } else {
-      handleSearch(); // Trigger search function when input value changes
-    }
+  };
+
+  const handleInputFocus = () => {
+    setIsInputFocused(true);
+  };
+
+  const handleInputBlur = () => {
+    setTimeout(() => {
+      setIsInputFocused(false);
+    }, 100);
+  };
+
+  const togglePopup = () => {
+    setShowPopup(!showPopup);
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
   };
 
   return (
@@ -31,7 +43,7 @@ const Header = () => {
         <h2 className="text-3xl font-extrabold text-red-900 mr-10">
           <Link to="/">Bottle Boulevard</Link>
         </h2>
-        <div className="search-container flex shrink items-center mr-10">
+        <div className="search-container flex shrink items-center mr-10 relative">
           <input
             type="text"
             placeholder="Search for a bottle"
@@ -39,31 +51,52 @@ const Header = () => {
             size="47"
             value={searchTerm}
             onChange={handleInputChange}
+            onFocus={handleInputFocus}
+            onBlur={handleInputBlur}
           />
           <button type="button" className="search-button px-4 py-3 rounded-r-lg">
             <i className="fa fa-search text-white"></i>
           </button>
+          {isInputFocused && searchResults.length > 0 && (
+            <div className="search-popup">
+              {searchResults.slice(0, 5).map((result, index) => (
+                <Link
+                  to={`/${result.category}/${result.id}`}
+                  key={`${result.id}-${index}`}
+                  className="search-result block px-4 py-2 hover:bg-gray-200"
+                  onMouseDown={(e) => e.preventDefault()}
+                >
+                  {result.name}
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
-        {/* Conditional rendering of search popup */}
-        {searchResults.length > 0 && searchTerm.trim() !== '' && (
-          <div className="search-popup">
-            {searchResults.map((result) => (
-              <Link to={`/whiskey/${result.id}`} key={result.id} className="search-result">{result.name}</Link>
-            ))}
-          </div>
-        )}
         <div className="login-sign mr-10">
-          <p>Login/SignUp</p>
-          <a href="#" className="flex items-center">
+          <p>
+            Login/SignUp
+          </p>
+          <a href="#" className="show-sign flex items-center" onClick={togglePopup}>
             My account
             <DropIcon className="ml-1" style={{ fill: 'currentColor' }} />
           </a>
+
+          {/* Login and Registration Popup */}
+          {showPopup && (
+            <div className="show-popup">
+              <LoginRegistration closePopup={closePopup} />
+            </div>
+          )}
         </div>
+
+        {/* Other elements */}
         <div className="vertical-line ml-4 mr-6 h-9"></div>
         <div className="shopping-cart-block mr-14">
           <button className="relative">
             <div className="cart-label absolute top-0 right-0">0</div>
-            <i className="fa fa-shopping-cart"></i>
+            <Link to="/basket">
+              <i className="fa fa-shopping-cart header-cart"></i>
+            </Link>
           </button>
         </div>
       </div>

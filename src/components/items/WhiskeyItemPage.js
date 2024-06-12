@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { data } from '../data/whiskeys';
+import { connect } from 'react-redux';
+import { addToBasket } from '../redux/actions';
 import Header from '../common/Header';
 import Breadcrumb from '../storeSections/Breadcrumb';
 import Footer from "../common/Footer";
-import Newsletter from "../mainPage/Newsletter"
+import Newsletter from "../mainPage/Newsletter";
+import { data } from '../data/whiskeys';
 
-const WhiskeyItemPage = () => {
+const WhiskeyItemPage = ({ addToBasket }) => {
     const { id } = useParams();
     const whiskeyIndex = data.whiskeyData.findIndex(item => item.id === parseInt(id, 10));
     const whiskey = data.whiskeyData[whiskeyIndex];
@@ -24,6 +26,13 @@ const WhiskeyItemPage = () => {
     const handleDecrement = () => {
         if (quantity > 0) {
             setQuantity(quantity - 1);
+        }
+    };
+
+    const handleAddToBasket = () => {
+        if (quantity > 0) {
+            addToBasket({ ...whiskey, quantity });
+            setQuantity(0); // Reset quantity after adding to basket
         }
     };
 
@@ -72,7 +81,7 @@ const WhiskeyItemPage = () => {
                             <div className="quantity">{quantity}</div>
                             <button onClick={handleIncrement} className="quantity-button">+</button>
                         </div>
-                        <button className='add-to-cart'>Add to cart</button>
+                        <button onClick={handleAddToBasket} className='add-to-cart'>Add to cart</button>
                     </div>
                 </div>
             </div>
@@ -85,7 +94,8 @@ const WhiskeyItemPage = () => {
 };
 
 WhiskeyItemPage.propTypes = {
-    id: PropTypes.string
+    id: PropTypes.string,
+    addToBasket: PropTypes.func.isRequired,
 };
 
-export default WhiskeyItemPage;
+export default connect(null, { addToBasket })(WhiskeyItemPage);

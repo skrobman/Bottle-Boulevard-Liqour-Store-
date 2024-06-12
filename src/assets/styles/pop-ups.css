@@ -1,0 +1,111 @@
+.show-sign {
+    position: relative;
+}
+
+.show-popup {
+    display: block;
+    
+}
+
+.hide-popup {
+    display: none;
+}
+
+.login-popup,
+.sign-popup {
+    background: #fff;
+    color: #5A6673;
+    padding: 45px 40px;
+    position: absolute;
+    top: calc(100% - 80px);
+    right: 5%;
+    z-index: 999;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.login-popup::before
+{
+    content: "";
+    position: absolute;
+    top: -10px;
+    /* Adjusted to align better */
+    left: 59%;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    background-color: #fff;
+    box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.2);
+    /* Horizontal shadow for the triangle */
+}
+
+.sign-popup::before{
+    content: "";
+    position: absolute;
+    top: -10px;
+    /* Adjusted to align better */
+    left: 61%;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    background-color: #fff;
+    box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.2);
+    /* Horizontal shadow for the triangle */
+}
+
+.login-popup-content,
+.sign-popup-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+}
+
+.login-popup-content h1,
+.sign-popup-content h1 {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.login-popup-content p,
+.sign-popup-content p {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.pop-input {
+    padding: 7px;
+    color: #757575;
+    border: 1px solid #D1D5DB;
+}
+
+.pop-input:hover {
+    border: 1px solid #BD7844;
+}
+
+.pop-input:focus {
+    border: 1px solid #BD7844;
+    outline: none;
+}
+
+.login-popup-content button,
+.sign-popup-content button {
+    background: #BD7844;
+    padding: 10px;
+    color: #fff;
+    font-weight: 700;
+    padding-bottom: 15px;
+}
+
+.login-popup-content button:hover,
+.sign-popup-content button:hover {
+    opacity: 0.9;
+    background: #BD7844;
+    border: none;
+}
+
+.login-popup-content a,
+.sign-popup-content a {
+    color: #BD7844;
+}

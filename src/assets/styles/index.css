@@ -57,12 +57,31 @@ select {
 
 .search-popup {
     position: absolute;
-    top: calc(100% + 10px); /* Position below the search input with some spacing */
-    left: 0; /* Align the left edge of the popup with the left edge of the search input */
+    top: calc(100% + 20px);
+    /* Adjusted to align better with input */
+    left: 0;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow around the entire element */
-    z-index: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* Shadow around the entire element */
+    z-index: 10;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.search-popup::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    /* Adjusted to align better */
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    background-color: #fff;
+    box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.2);
+    /* Horizontal shadow for the triangle */
 }
 
 .search-result {
@@ -100,7 +119,7 @@ select {
     background-color: #c73507;
 }
 
-.fa-shopping-cart {
+.header-cart {
     color: #c73507;
     font-size: 36px;
 }

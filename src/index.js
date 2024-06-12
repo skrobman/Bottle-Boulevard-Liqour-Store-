@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './assets/styles/index.css';
 import './assets/styles/shop.css';
-import './assets/styles/items.css'
+import './assets/styles/items.css';
+import './assets/styles/pop-ups.css';
 import App from './App';
 import WhiskeyPage from './components/pages/WhiskeyPage';
 import CognacPage from './components/pages/CognacPage';
@@ -16,12 +17,16 @@ import VodkaItemPage from './components/items/VodkaItemPage';
 import TequilaItemPage from './components/items/TequilaItemPage';
 import GinItemPage from './components/items/GinItemPage';
 import WineItemPage from './components/items/WineItemPage';
+import BasketPage from './components/pages/BasketPage';
 import Breadcrumb from './components/storeSections/Breadcrumb';
 
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+
+import { Provider } from 'react-redux';
+import store from './components/redux/store';
 
 const router = createBrowserRouter([
   {
@@ -76,13 +81,18 @@ const router = createBrowserRouter([
     path: "/wine/:id",
     element: <WineItemPage />,
   },
+  {
+    path: "/basket",
+    element: <BasketPage/>,
+  },
 ]);
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
